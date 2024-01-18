@@ -16,7 +16,7 @@ const TopBar: React.FC = () => {
               icon={<FaBell />}
               size="sm"
               bgColor="red.500"
-              color="white"
+              color="gray.800"
               mr={2}
               _hover={{ bgColor: 'red.600' }}
             />
@@ -38,7 +38,7 @@ const TopBar: React.FC = () => {
               icon={<FaCog />}
               size="sm"
               bgColor="green.500"
-              color="white"
+              color="gray.800"
               _hover={{ bgColor: 'green.600' }}
             />
           </Tooltip>

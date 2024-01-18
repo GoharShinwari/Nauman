@@ -1,9 +1,11 @@
 import React from 'react';
-import {Box,Button,Heading,HStack,Image,Text} from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Box, Button, Heading, HStack, Image, Text } from '@chakra-ui/react';
 
+interface MainPageProps {
+  onButtonClick: () => void;
+}
 
-const MainPage: React.FC = () => {
+const MainPage: React.FC<MainPageProps> = ({ onButtonClick }) => {
   const storeIcons = [
     {
       src: 'https://www.apple.com/v/app-store/b/images/overview/icon_appstore__ev0z770zyxoy_large_2x.png',
@@ -17,18 +19,17 @@ const MainPage: React.FC = () => {
 
   return (
     <Box
-      p={8}
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      height="100vh"
       textAlign="center"
       fontFamily="'Montserrat', sans-serif"
-      bg="gray.800" 
+      bg="gray.800"
+      p={8}
     >
-      <Heading
-        as="h1"
-        fontSize="4xl"
-        fontFamily="'Source Code Pro', sans-serif"
-        mb={4}
-        color="teal.500"  
-      >
+      <Heading as="h1" fontSize="4xl" fontWeight="bold" color="teal" mb={2} fontFamily="'Montserrat', sans-serif">
         Explore TrafficEase
       </Heading>
       <Text fontSize="lg" color="white" mb={6}>
@@ -38,8 +39,6 @@ const MainPage: React.FC = () => {
         {storeIcons.map((icon, index) => (
           <Button
             key={index}
-            as="a"
-            href="#"
             colorScheme="blue"
             size="lg"
             leftIcon={<Image src={icon.src} alt={icon.alt} boxSize="24px" />}
@@ -52,16 +51,15 @@ const MainPage: React.FC = () => {
         Available for iOS and Android
       </Text>
       <Button
-    as={Link}
-    to="/"
-    color="white"
-    bgColor="teal"
-    size="lg"
-    fontFamily="'Montserrat', sans-serif"
-    _hover={{ bgColor: 'teal.700' }}
-  >
-    Get Started
-  </Button>
+        color="white"
+        bgColor="teal"
+        size="lg"
+        onClick={onButtonClick}
+        mt={6}
+        _hover={{ bgColor: 'teal.700' }}
+      >
+        Get Started
+      </Button>
     </Box>
   );
 };

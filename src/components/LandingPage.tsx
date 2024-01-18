@@ -1,15 +1,27 @@
 import React from 'react';
 import { Box, Heading, Text, Image, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
-function LandingPage() {
+interface LandingPageProps {
+  onButtonClick: () => void;
+}
+
+const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
   return (
-    <Box bg="gray.800" p={8} textAlign="center" bgSize="fill">
-      <Heading as="h1" fontSize="4xl" fontWeight="bold" fontFamily="'Montserrat', sans-serif" color="teal" mb={2}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      height="100vh"
+      bg="gray.800"
+      p={8}
+      textAlign="center"
+    >
+      <Heading as="h1" fontSize="4xl" fontWeight="bold" color="teal" mb={2} fontFamily="'Montserrat', sans-serif">
         Welcome to TrafficEase
       </Heading>
-      <Text fontSize="lg" color="white" mb={4}>
+      <Text fontSize="lg" color="white" mb={4} fontFamily="'Montserrat', sans-serif">
         Simplify your commute with TrafficEase. Explore real-time traffic updates, plan your routes, and experience a stress-free journey.
       </Text>
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -22,22 +34,22 @@ function LandingPage() {
         />
       </motion.div>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Text fontSize="xl" color="white" mb={4}>
+        <Text fontSize="xl" color="white" mb={4} fontFamily="'Montserrat', sans-serif">
           Don't let traffic slow you down. Experience a smoother commute with TrafficEase.
         </Text>
       </motion.div>
       <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-      <Button
-  as={Link}
-  to="/main"
-  color="white"
-  bgColor="teal"
-  size="lg"
-  fontFamily="'Montserrat', sans-serif"
-  _hover={{ bgColor: 'teal.700' }}
->
-  Get Started
-</Button>
+        <Button
+          color="white"
+          bgColor="teal"
+          size="lg"
+          fontFamily="'Montserrat', sans-serif"
+          _hover={{ bgColor: 'teal.700' }}
+          onClick={onButtonClick}
+          mt={4}
+        >
+          Get Started
+        </Button>
       </motion.div>
     </Box>
   );
