@@ -4,7 +4,7 @@ import { FaBell, FaUser, FaCog } from 'react-icons/fa';
 
 const TopBar: React.FC = () => {
   return (
-    <Box bg="gray.800" color="white" p={4}>
+<Box bg="gray.900" color="white" p={4}>
       <Flex justify="space-between" align="center">
         <Text fontSize="xl" fontWeight="bold" fontFamily="'Montserrat', monospace">
           TrafficEase
